@@ -70,8 +70,6 @@ def language_coeditions(lang):
     ortts1, ortts2 = [1,-1,1,-1,1,-1], [1,-1,1,-1,1,-1,1]
     
     sorientations = ortts1 if lang in langs_defs.IALs else ortts2
-    
-    plt.figure(figsize = (13, 7))
                      
     Sankey( flows = sankey_flows,
             labels = sankey_labels, 
@@ -83,10 +81,10 @@ def language_coeditions(lang):
             offset = 0.4,
             rotation = -180 ).finish()
     
-    plt.title( "Flow of " + lang + " users that coedit in other IALs" )
+    plt.title( "Flow of " + lang + " users that coedit in IALs" )
     
     plt.savefig( '../graphs/flows/' + 
-                 'Flow of ' + lang + ' users that coedit in other IALs.png', 
+                 'Flow of ' + lang + ' users that coedit in IALs.png', 
                  dpi = 400 )
 
 ######################################################
