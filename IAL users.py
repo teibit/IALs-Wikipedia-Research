@@ -19,7 +19,7 @@ effectively yielding the amount of editors there is.
 '''
 
 for l, i in zip(langs_defs.IALs, range(1, len(langs_defs.IALs) + 1)):
-    df = pd.read_csv('users coeditions/' + l + ' coeditions.csv')
+    df = pd.read_csv('../datasets/users coeditions/' + l + ' coeditions.csv')
     df = df['Contributions_in_' + l]
     df = df[~np.isnan(df)]
     IAL_editors = pd.concat( [ IAL_editors, 
@@ -28,12 +28,16 @@ for l, i in zip(langs_defs.IALs, range(1, len(langs_defs.IALs) + 1)):
                                              index = [i] ) ] )
 
 '''
-Plotting.
+Plotting. Saving the image assumes there exists a folder called graphs and
+that this code file is in a different folder, both inside the same folder.
 '''
 
-IAL_editors.plot( x = 'IAL', 
-                  y = 'Editors', 
-                  kind = 'barh', 
-                  title = 'Editors in IALs.',
-                  figsize = (20, 10),
-                  fontsize = 20 )
+graph = IAL_editors.plot( x = 'IAL', 
+                          y = 'Editors', 
+                          kind = 'barh', 
+                          title = 'Editors in IALs.',
+                          figsize = (20, 10),
+                          fontsize = 20 )
+
+fig = graph.get_figure()
+fig.savefig('../graphs/IAL_users.png')
