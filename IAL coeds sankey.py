@@ -17,7 +17,7 @@ def language_coeditions(lang):
     Read the dataset for the language.
     '''
     
-    df = pd.read_csv('users coeditions/' + lang + ' coeditions.csv')
+    df = pd.read_csv('../datasets/users coeditions/' + lang + ' coeditions.csv')
     
     '''
     If we consider coeditions of an IAL then we won't show that IAL data and
@@ -55,7 +55,7 @@ def language_coeditions(lang):
     
     '''
     Plotting. Don't pay much attention to this part, it's mostly settings
-    that make the graphs look good.
+    that make the graphs look good and save them.
     '''
     
     sankey_flows = []
@@ -71,6 +71,8 @@ def language_coeditions(lang):
     
     sorientations = ortts1 if lang in langs_defs.IALs else ortts2
     
+    plt.figure(figsize = (13, 7))
+                     
     Sankey( flows = sankey_flows,
             labels = sankey_labels, 
             orientations = sorientations,
@@ -81,7 +83,11 @@ def language_coeditions(lang):
             offset = 0.4,
             rotation = -180 ).finish()
     
-    plt.title("Flow of " + lang + " users that coedit in other IALs")
+    plt.title( "Flow of " + lang + " users that coedit in other IALs" )
+    
+    plt.savefig( '../graphs/flows/' + 
+                 'Flow of ' + lang + ' users that coedit in other IALs.png', 
+                 dpi = 400 )
 
 ######################################################
 # How many users edit in a language AND in ALL IALs? # 
@@ -89,3 +95,4 @@ def language_coeditions(lang):
 
 for l in langs_defs.IALs + langs_defs.top_langs:
     language_coeditions(l)
+    
