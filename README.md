@@ -6,7 +6,7 @@ Wikimedia research page.
 
 ## Requirements
 
-The code is written in Python and we make use of the libraries:
+The code is written in Python 3 and we make use of the libraries:
 
 - [Pandas](https://pandas.pydata.org)
 - [Numpy](http://www.numpy.org)
