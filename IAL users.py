@@ -32,12 +32,16 @@ Plotting. Saving the image assumes there exists a folder called graphs and
 that this code file is in a different folder, both inside the same folder.
 '''
 
+IAL_editors = IAL_editors.sort_values(['Editors'])
+
 graph = IAL_editors.plot( x = 'IAL', 
                           y = 'Editors', 
                           kind = 'barh', 
                           title = 'Editors in IALs.',
-                          figsize = (20, 10),
-                          fontsize = 20 )
+                          figsize = (40,20),
+                          fontsize = 28,
+                          xticks = [837, 2963, 16262, 67852], 
+                          grid = True)
 
 fig = graph.get_figure()
 fig.savefig('../graphs/IAL_users.png')
