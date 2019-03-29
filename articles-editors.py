@@ -14,7 +14,8 @@ df = pd.read_csv('../datasets/articles-editors.csv')
 
 plt.figure(figsize=(8,6))
 
-plt.title("Editors vs articles in IALs")
+plt.title( "Ratio of articles per editor in IALs" + 
+           "\nDots show the corresponding value." )
 
 for i in range(0,7):
     
@@ -35,9 +36,9 @@ plt.legend(langs_defs.IALs)
 plt.xscale('log')
 plt.yscale('log')
 
-plt.xlabel(x_axis)
-plt.ylabel(y_axis)
+plt.xlabel("Number of " + x_axis)
+plt.ylabel("Number of " + y_axis)
 
-plt.savefig('../graphs/articles-editors3.png', dpi = 500)
+plt.savefig('../graphs/articles-editors.png', dpi = 500)
 
 plt.show()
